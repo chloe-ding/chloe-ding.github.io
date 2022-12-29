@@ -1,11 +1,25 @@
 <template>
   <h1>{{ header ? header.toLocaleUpperCase() : "Welcome chloe" }}</h1>
-  <input v-model.trim="newItem" type="text" placeholder="Add an item">
-  <label>
-    <input type="checkbox" v-model="newItemHighPriority">High Priority
-  </label>
-  <br>
-  {{ newItem }} {{ newItemHighPriority }}
+
+  <div class="add-item-form">
+    <input
+        @keyup.enter="saveItem"
+        v-model.trim="newItem" type="text" placeholder="Add an item">
+    <label>
+      <input type="checkbox" v-model="newItemHighPriority">High Priority
+    </label>
+    <button
+      @click="saveItem"
+      class="btn btn-primary">
+      Save Item
+    </button>
+  </div>
+
+
+
+<!--  <br>-->
+<!--  {{ newItem }} {{ newItemHighPriority }}-->
+
   <ul>
     <li v-for="({id, label}, index) in items" :key="id">{{ index }}: {{ label }}</li>
   </ul>
@@ -24,7 +38,14 @@ export default {
         {id: 2, label: "1 box of fruit punch"},
         {id: 3, label: "20 goody bags"}
       ]
-    };
+    }
+  },
+
+  methods: {
+    saveItem() {
+      this.items.push({id: this.items.length + 1, label: this.newItem});
+      this.newItem = "";
+    }
   }
 }
 </script>
