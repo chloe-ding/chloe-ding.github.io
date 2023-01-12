@@ -34,7 +34,7 @@ jobs:
       - name: Build with npm
         run:  npm run build
       - name: makeup underscore files for Jekyll
-        run: cp ./dist/_*.js ./_site
+        run: cp ./dist/**/_*.js ./_site
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
