@@ -38,8 +38,6 @@ jobs:
         with:
           source: ./dist
           destination: ./_site
-      - name: makeup underscore files for Jekyll
-        run: sudo cp ./dist/**/_*.js ./_site/**/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
