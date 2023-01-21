@@ -55,13 +55,15 @@ class: content
 ---
 
 ## Special Occasions
-![table filled with food and decorations for a special occasion](image-url) 
+
+[//]: # (![table filled with food and decorations for a special occasion]&#40;image-url&#41; )
 - These feasts include delicacies such as roast turkey, Christmas pudding, and mince pies.
 
 ---
 
 ## Conclusion
-![spread of Hogwarts-themed dishes](image-url)
+
+[//]: # (![spread of Hogwarts-themed dishes]&#40;image-url&#41;)
 
 - The food at Hogwarts is a delicious and integral part of the wizarding world.
 - From traditional meals is something for every palate.
