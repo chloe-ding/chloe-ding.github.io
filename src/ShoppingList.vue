@@ -1,7 +1,10 @@
 <template>
   <h1>{{ header ? header.toLocaleUpperCase() : "Welcome chloe" }}</h1>
 
-  <div class="add-item-form">
+  <button v-if="editing" @click="doEdit(false)" >Cancel</button>
+  <button v-else @click="doEdit(true)">Add Item</button>
+
+  <div v-if="editing" class="add-item-form">
     <input
         @keyup.enter="saveItem"
         v-model.trim="newItem" type="text" placeholder="Add an item">
@@ -15,6 +18,7 @@
     </button>
   </div>
 
+  <p v-if="items.length === 0">All items bought</p>
 
 
 <!--  <br>-->
@@ -31,12 +35,13 @@ export default {
   data() {
     return {
       header: 'Shopping List App',
+      editing: true,
       newItem: '',
       newItemHighPriority: false,
       items: [
-        {id: 1, label: "10 bracelets"},
-        {id: 2, label: "1 box of fruit punch"},
-        {id: 3, label: "20 goody bags"}
+        // {id: 1, label: "10 bracelets"},
+        // {id: 2, label: "1 box of fruit punch"},
+        // {id: 3, label: "20 goody bags"}
       ]
     }
   },
@@ -45,7 +50,12 @@ export default {
     saveItem() {
       this.items.push({id: this.items.length + 1, label: this.newItem});
       this.newItem = "";
-    }
+    },
+
+    doEdit(E) {
+      this.editing = E;
+      this.newItem = "";
+    },
   }
 }
 </script>
